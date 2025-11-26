@@ -120,7 +120,7 @@
         "WSJF - what can we get out the door quickest",
         "Visual board of unimplemented features (backlog)",
         "Right now, sales is able to get their work prioritized based on the pressure associated with having to fill contracts. Make sales sign corresponding contracts with SWE",
-        "Role Swap or "Day in the Life" Exchange",
+        "Role Swap or 'Day in the Life' Exchange",
         "Hold Commissions or Tie to Roadmap Adherence",
         "Customer satisfaction survey when feature isn't delivered on salesman schedule",
         "how do we get sales people to experience reduced optionality?",
@@ -242,7 +242,7 @@
     },
     {
       "title": "Obviously",
-      "scenario": "Your team is modernizing a legacy application. In a planning meeting, a key stakeholder says, "Obviously, we need Feature X integrated into the new platform for the initial launch, as it's critical for our biggest client.&#34; What do you do?",
+      "scenario": "Your team is modernizing a legacy application. In a planning meeting, a key stakeholder says, 'Obviously, we need Feature X integrated into the new platform for the initial launch, as it's critical for our biggest client.' What do you do?",
       "card_image": "obviously.jpg",
       "insights": [
         "Do more of our clients have a different &#34;critical&#34; feature",
