@@ -75,7 +75,8 @@
   onMount(async () => {
     try {
       console.log('Fetching data...');
-      const response = await fetch('/data/twc1_data.json');
+      const dataUrl = `${import.meta.env.BASE_URL}data/twc1_data.json`;
+      const response = await fetch(dataUrl);
       console.log('Response status:', response.status);
 
       if (!response.ok) {
@@ -139,7 +140,7 @@
             <div class="hover-3d selected-card">
               <figure class="w-64 rounded-2xl">
                 <img
-                  src="/assets/images/{selectedThinkie.card_image}"
+                  src="{import.meta.env.BASE_URL}assets/images/{selectedThinkie.card_image}"
                   alt={selectedThinkie.title}
                   class="rounded-2xl shadow-2xl"
                 />
@@ -175,7 +176,7 @@
             >
               <figure class="w-48 rounded-2xl">
                 <img
-                  src="/assets/images/{thinkie.card_image}"
+                  src="{import.meta.env.BASE_URL}assets/images/{thinkie.card_image}"
                   alt={thinkie.title}
                   class="rounded-2xl shadow-lg"
                 />
