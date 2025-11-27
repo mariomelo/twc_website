@@ -65,6 +65,11 @@
     font-size: 1rem;
     transition: all 0.2s ease;
     background: white;
+    color: #1f2937;
+  }
+
+  .search-input::placeholder {
+    color: #9ca3af;
   }
 
   .search-input:focus {

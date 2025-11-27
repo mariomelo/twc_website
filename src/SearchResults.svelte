@@ -32,13 +32,24 @@
       {#each results as result}
         <button
           on:click={() => onSelectThinkie(result.thinkie)}
-          class="result-card"
+          class="hover-3d result-card-wrapper"
         >
-          <h3 class="result-title">{result.thinkie.title}</h3>
-          <div class="result-type">{result.type}</div>
-          <p class="result-text">
-            {@html highlightText(truncateText(result.matchedText), query)}
-          </p>
+          <div class="result-card">
+            <h3 class="result-title">{result.thinkie.title}</h3>
+            <div class="result-type">{result.type}</div>
+            <p class="result-text">
+              {@html highlightText(truncateText(result.matchedText), query)}
+            </p>
+          </div>
+          <!-- 8 empty divs needed for the 3D effect -->
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </button>
       {/each}
     </div>
@@ -95,21 +106,25 @@
     }
   }
 
+  .result-card-wrapper {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
   .result-card {
     background: white;
     border: 2px solid #e5e7eb;
     border-radius: 0.75rem;
     padding: 1.5rem;
     text-align: left;
-    cursor: pointer;
     transition: all 0.2s ease;
-    width: 100%;
   }
 
-  .result-card:hover {
+  .result-card-wrapper:hover .result-card {
     border-color: #667eea;
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-    transform: translateY(-2px);
   }
 
   .result-title {
