@@ -189,7 +189,7 @@
               <p class="text-white/70">May 20th, 2026</p>
               <p class="text-white/85">A virtual unconference — practice Thinkies with creative thinkers worldwide</p>
               <div class="card-actions mt-4">
-                <a href="/congress/twc-2/" class="btn-outline-white-sm">
+                <a href="{base}/congress/twc-2/" class="btn-outline-white-sm">
                   Learn More
                 </a>
               </div>
