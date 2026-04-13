@@ -10,6 +10,9 @@ export default {
       fallback: '404.html',
       precompress: false,
       strict: true
-    })
+    }),
+    paths: {
+      base: '/twc_website'
+    }
   }
 };
