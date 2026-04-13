@@ -116,7 +116,7 @@
             <div class="hover-3d selected-card">
               <figure class="w-64 rounded-2xl">
                 <img
-                  src="/conferences/{slug}/images/{selectedThinkie.card_image}"
+                  src="{base}/conferences/{slug}/images/{selectedThinkie.card_image}"
                   alt={selectedThinkie.title}
                   class="rounded-2xl shadow-2xl"
                 />
@@ -152,7 +152,7 @@
             >
               <figure class="w-48 rounded-2xl">
                 <img
-                  src="/conferences/{slug}/images/{thinkie.card_image}"
+                  src="{base}/conferences/{slug}/images/{thinkie.card_image}"
                   alt={thinkie.title}
                   class="rounded-2xl shadow-lg"
                 />
