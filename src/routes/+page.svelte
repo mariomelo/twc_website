@@ -175,7 +175,7 @@
               <p class="text-neutral">June 4th, 2025</p>
               <p>12 Thinkies discussed, dozens of insights collected</p>
               <div class="card-actions mt-4">
-                <button class="btn-coral" on:click={() => goto('/conferences/twc-1/')}>
+                <button class="btn-coral" on:click={() => goto(`${base}/conferences/twc-1/`)}>
                   View Congress Results
                 </button>
               </div>

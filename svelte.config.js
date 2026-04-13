@@ -1,6 +1,8 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
+const base = process.env.BASE_PATH ?? '';
+
 export default {
   preprocess: vitePreprocess(),
   kit: {
@@ -12,7 +14,7 @@ export default {
       strict: true
     }),
     paths: {
-      base: '/twc_website'
+      base
     }
   }
 };
