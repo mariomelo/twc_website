@@ -86,7 +86,7 @@
             Back to Thinkies.org
           </button>
           <h1 class="text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Thinkies World Conference I
+            Thinkies World Congress I
           </h1>
           <p class="text-lg opacity-70 mb-8">
             On June 4th, 2025, we discussed {thinkies.length} thinkies and collected {totalInsights} insights.

@@ -12,21 +12,21 @@ export default {
     themes: [
       {
         thinkies: {
-          // Coral + Facebook blue palette
-          "primary": "#1877F2",           // Facebook blue
+          // Purple + Coral palette
+          "primary": "#533483",           // Purple (brand)
           "primary-content": "#ffffff",
           "secondary": "#4a5568",         // Neutral gray
           "secondary-content": "#ffffff",
           "accent": "#FD5353",            // Coral (immutable)
           "accent-content": "#ffffff",
-          "neutral": "#2d3748",           // Dark gray - footer
+          "neutral": "#1a1a2e",           // Deep navy - footer (matches banner)
           "neutral-content": "#f7fafc",
           "base-100": "#ffffff",          // White
-          "base-200": "#f7fafc",          // Off-white
-          "base-300": "#edf2f7",          // Light gray
-          "base-content": "#1a202c",      // Dark text
-          "info": "#1877F2",              // Facebook blue
-          "success": "#1877F2",           // Facebook blue (instead of green)
+          "base-200": "#f8f6ff",          // Very light lavender
+          "base-300": "#ede9f8",          // Light lavender
+          "base-content": "#1a1a2e",      // Dark text (matches brand dark)
+          "info": "#533483",
+          "success": "#533483",
           "warning": "#f59e0b",           // Amber
           "error": "#dc2626",             // Red
 

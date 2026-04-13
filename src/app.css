@@ -7,6 +7,7 @@
 @layer base {
   html {
     font-size: 16px;
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -17,19 +18,19 @@
 }
 
 @layer components {
-  /* Accent color (blue) for text/borders - legible on white */
+  /* Accent color (purple) for text/borders - legible on white */
   .text-accent-blue {
-    color: #1877F2;
+    color: #533483;
   }
 
   .border-accent-blue {
-    border-color: #1877F2;
+    border-color: #533483;
   }
 
   .badge-accent-blue {
-    background-color: #1877F2;
+    background-color: #533483;
     color: white;
-    border-color: #1877F2;
+    border-color: #533483;
   }
 
   /* Coral only for buttons */

@@ -7,10 +7,26 @@
   <header class="hero-gradient py-20">
     <div class="text-center flex flex-col items-center">
       <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">Thinkies</h1>
-      <p class="text-xl max-w-2xl mb-8 text-white/90">Powerful pattern-based tools for creative problem solving</p>
-      <a href="#learn-more" class="btn-coral btn-coral-lg">Learn More</a>
+      <p class="text-xl max-w-2xl text-white/90">Powerful pattern-based tools for creative problem solving</p>
     </div>
   </header>
+
+  <!-- TWC II Banner -->
+  <div class="twc2-banner px-4 py-10">
+    <div class="container mx-auto max-w-5xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-white text-center md:text-left">
+        <p class="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">Upcoming Virtual Event · May 20th, 2026</p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Thinkies World Congress II</h2>
+        <p class="text-white/80 max-w-xl">
+          A hands-on virtual unconference where you practice using Thinkies to unstick stuck thinking.
+          Join us to generate fresh ideas and collaborate with creative thinkers worldwide.
+        </p>
+      </div>
+      <a href="/congress/twc-2/" class="btn-coral btn-coral-lg whitespace-nowrap shrink-0">
+        Learn More
+      </a>
+    </div>
+  </div>
 
   <main class="flex-grow">
     <!-- What Are Thinkies -->
@@ -145,12 +161,13 @@
     <!-- Conferences Section -->
     <section class="py-16 px-4 bg-base-100">
       <div class="container mx-auto max-w-6xl">
-        <h2 class="text-3xl font-bold text-center mb-8">Thinkies World Conferences</h2>
+        <h2 class="text-3xl font-bold text-center mb-8">Thinkies World Congress</h2>
         <p class="text-center max-w-3xl mx-auto mb-8 text-lg">
           Join the community of creative thinkers exploring and sharing insights about Thinkies.
         </p>
 
-        <div class="flex justify-center">
+        <div class="flex flex-col md:flex-row justify-center gap-6">
+          <!-- TWC I -->
           <div class="card bg-base-100 border-2 border-accent-blue w-full max-w-md">
             <div class="card-body items-center text-center">
               <h3 class="card-title text-2xl text-primary">TWC I</h3>
@@ -158,8 +175,22 @@
               <p>12 Thinkies discussed, dozens of insights collected</p>
               <div class="card-actions mt-4">
                 <button class="btn-coral" on:click={() => goto('/conferences/twc-1/')}>
-                  View Conference Results
+                  View Congress Results
                 </button>
+              </div>
+            </div>
+          </div>
+          <!-- TWC II -->
+          <div class="card twc2-card w-full max-w-md">
+            <div class="card-body items-center text-center">
+              <span class="badge badge-sm text-white/80 border-white/30 border mb-1 bg-transparent uppercase tracking-wider text-xs">Upcoming</span>
+              <h3 class="card-title text-2xl text-white">TWC II</h3>
+              <p class="text-white/70">May 20th, 2026</p>
+              <p class="text-white/85">A virtual unconference — practice Thinkies with creative thinkers worldwide</p>
+              <div class="card-actions mt-4">
+                <a href="/congress/twc-2/" class="btn-outline-white-sm">
+                  Learn More
+                </a>
               </div>
             </div>
           </div>
@@ -205,6 +236,34 @@
 
 <style>
   .hero-gradient {
-    background: linear-gradient(135deg, #4a5568 0%, #718096 50%, #a0aec0 100%);
+    background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  }
+
+  .twc2-banner {
+    background: linear-gradient(160deg, #0f3460 0%, #533483 70%, #3b1f6b 100%);
+  }
+
+  .twc2-card {
+    background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  .btn-outline-white-sm {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-outline-white-sm:hover {
+    background: white;
+    color: #0f3460;
   }
 </style>
