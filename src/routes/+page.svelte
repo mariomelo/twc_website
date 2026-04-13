@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
 </script>
 
 <div class="min-h-screen flex flex-col bg-base-200">
@@ -22,7 +23,7 @@
           Join us to generate fresh ideas and collaborate with creative thinkers worldwide.
         </p>
       </div>
-      <a href="/congress/twc-2/" class="btn-coral btn-coral-lg whitespace-nowrap shrink-0">
+      <a href="{base}/congress/twc-2/" class="btn-coral btn-coral-lg whitespace-nowrap shrink-0">
         Learn More
       </a>
     </div>
@@ -227,8 +228,8 @@
       </div>
       <p>
         &copy; 2025 Thinkies. All rights reserved.
-        <a href="./privacy.html" class="link link-hover ml-2">Privacy Policy</a>
-        <a href="./code_of_conduct.html" class="link link-hover ml-2">Code of Conduct</a>
+        <a href="{base}/privacy.html" class="link link-hover ml-2">Privacy Policy</a>
+        <a href="{base}/code_of_conduct.html" class="link link-hover ml-2">Code of Conduct</a>
       </p>
     </div>
   </footer>
