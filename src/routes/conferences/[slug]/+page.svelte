@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import InsightsList from '$lib/components/InsightsList.svelte';
   import SearchBar from '$lib/components/SearchBar.svelte';
   import SearchResults from '$lib/components/SearchResults.svelte';
@@ -79,7 +80,7 @@
     <div class="container mx-auto px-4 py-12 max-w-7xl">
       {#if !selectedThinkie}
         <div class="text-center mb-8">
-          <button on:click={() => goto('/')} class="btn btn-ghost btn-sm mb-4">
+          <button on:click={() => goto(`${base}/`)} class="btn btn-ghost btn-sm mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>

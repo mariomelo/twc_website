@@ -195,7 +195,7 @@
           learn more at Substack
         </a>
         &nbsp;·&nbsp;
-        <a href="/" class="link font-semibold">Back to thinkies.org</a>
+        <a href="{base}/" class="link font-semibold">Back to thinkies.org</a>
       </p>
       <p class="text-sm opacity-60">
         <a href="{base}/code_of_conduct.html" class="link link-hover">Code of Conduct</a>
