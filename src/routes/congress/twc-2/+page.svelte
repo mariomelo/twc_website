@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   function scrollToJoin(e) {
     e.preventDefault();
     document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' });
@@ -197,9 +198,9 @@
         <a href="/" class="link font-semibold">Back to thinkies.org</a>
       </p>
       <p class="text-sm opacity-60">
-        <a href="/code_of_conduct.html" class="link link-hover">Code of Conduct</a>
+        <a href="{base}/code_of_conduct.html" class="link link-hover">Code of Conduct</a>
         <span class="mx-2">·</span>
-        <a href="/privacy.html" class="link link-hover">Privacy Policy</a>
+        <a href="{base}/privacy.html" class="link link-hover">Privacy Policy</a>
       </p>
     </div>
   </footer>
