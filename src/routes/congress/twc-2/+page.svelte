@@ -41,6 +41,25 @@
       </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="py-16 px-4">
+      <div class="container mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold mb-4">See What It's All About</h2>
+        <p class="text-lg text-neutral mb-8">
+          Watch this short video to get a feel for what the Thinkies World Congress is — and why you should join.
+        </p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/xx05TMxead0?start=3"
+            title="What is the Thinkies World Congress?"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
     <!-- What to Expect -->
     <section class="py-16 px-4">
       <div class="container mx-auto max-w-6xl">
@@ -207,6 +226,23 @@
 </div>
 
 <style>
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   .twc2-hero {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
   }
