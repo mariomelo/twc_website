@@ -11,10 +11,11 @@
   <!-- Hero Section -->
   <header class="twc2-hero py-24 px-4">
     <div class="text-center flex flex-col items-center max-w-3xl mx-auto">
-      <p class="text-sm font-semibold uppercase tracking-widest text-white/70 mb-3">Virtual Unconference Event</p>
+      <p class="text-sm font-semibold uppercase tracking-widest text-white/70 mb-3">Virtual Unconference Event by <span class="text-white">Kent Beck</span></p>
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white whitespace-nowrap">Thinkies World Congress II</h1>
       <p class="text-2xl font-semibold text-white/90 mb-3">A Creative Gathering for Unsticking Stuck Thinking</p>
-      <p class="text-xl text-white/80 mb-8">May 20th, 2026</p>
+      <p class="text-xl text-white/80 mb-4">May 20th, 2026</p>
+      <p class="text-lg text-white/80 mb-8">8:00am to 11:00am Pacific Time (5pm - 8pm CET)</p>
       <a href="#join" on:click={scrollToJoin} class="btn-coral btn-coral-lg">Join the Event</a>
     </div>
   </header>
@@ -23,7 +24,7 @@
 
     <!-- About Section -->
     <section class="py-16 px-4 bg-base-100">
-      <div class="container mx-auto max-w-3xl text-center">
+      <div class="container mx-auto max-w-4xl text-justified">
         <p class="text-lg leading-relaxed mb-6">
           Thinkies are <strong>learnable pattern transformations</strong> you can use to shift how you see a situation,
           expand the space of options, and spark new ideas — especially when things feel stuck or prematurely decided.
@@ -44,7 +45,7 @@
     <!-- Video Section -->
     <section class="py-16 px-4">
       <div class="container mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-bold mb-4">See What It's All About</h2>
+        <h2 class="text-5xl font-bold mb-4">See What It's All About</h2>
         <p class="text-lg text-neutral mb-8">
           Watch this short video to get a feel for what the Thinkies World Congress is — and why you should join.
         </p>
@@ -61,16 +62,16 @@
     </section>
 
     <!-- What to Expect -->
-    <section class="py-16 px-4">
+    <section class="py-16 px-4 bg-base-100">
       <div class="container mx-auto max-w-6xl">
-        <h2 class="text-3xl font-bold text-center mb-4">What to Expect</h2>
-        <p class="text-center max-w-2xl mx-auto mb-12 text-lg">
+        <h2 class="text-5xl font-bold text-center mb-4">What to Expect</h2>
+        <p class="text-center max-w-4xl mx-auto mb-12 text-lg">
           A hands-on, virtual gathering designed for anyone who wants to strengthen their ability to think creatively
           and unstick stuck thinking — whether you're a software developer, engineering leader, or simply someone
           who cares about getting unstuck.
         </p>
 
-        <h3 class="text-xl font-semibold text-center mb-8 text-neutral">Here's how the experience unfolds:</h3>
+        <h3 class="text-2xl font-semibold text-center mb-8 text-neutral">Here's how the experience unfolds:</h3>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="card bg-base-100 shadow-lg hover:-translate-y-1 transition-transform">
@@ -106,34 +107,20 @@
         </div>
 
         <!-- Inline CTA -->
-        <div class="text-center mt-12">
-          <p class="text-neutral mb-6">Ready to join? Grab your spot now.</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Attendee" class="btn-coral btn-coral-lg">
-              Join as Attendee
-            </a>
-            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-outline-purple btn-coral-lg">
-              Join as Facilitator
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- Panel Discussion -->
-    <section class="py-16 px-4 bg-base-100">
+    <section class="py-12 px-4 bg-base-100">
+      <h3 class="text-2xl font-semibold text-center mb-8 text-neutral">Panel Discussion: Where does Creativity comes from?</h3>
       <div class="container mx-auto max-w-4xl">
-        <p class="text-center max-w-2xl mx-auto mb-12 text-lg">
-          We'll do 2 rounds of practice with applying Thinkies, then have a panel discussion on the keynote mainstage:
+        <p class="text-center max-w-4xl mx-auto mb-12 text-lg">
+        We’ll do 2 rounds of practice with applying Thinkies, then have a panel discussion on the keynote mainstage inviting thought leaders from multiple perspectives to give their take:
         </p>
-        <div class="panel-quote text-center mb-12">
-          <p class="text-2xl font-semibold italic text-primary">"Where does Creativity Come From?"</p>
-          <p class="mt-3 text-neutral">Thought leaders from multiple perspectives sharing their take</p>
-        </div>
 
         <!-- Panelists placeholder -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-          {#each ['Panelist A', 'Panelist B', 'Panelist C', 'Panelist D'] as panelist}
+          {#each ['Panelist A', 'Panelist B', 'Panelist C'] as panelist}
             <div class="card bg-base-200 border border-base-300">
               <div class="card-body flex-row items-center gap-4">
                 <div class="avatar placeholder">
