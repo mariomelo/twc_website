@@ -16,7 +16,7 @@
     {
       name: 'Marian Petre',
       role: 'SE Researcher of Developer Expertise and High-Performing Teams',
-      bio: 'Emeritus Professor at the Open University (UK) with over three decades of experience studying high-performing software development teams to understand what distinguishes them, exposing actionable insights into how they think, communicate, design, and solve problems.',
+      bio: 'Emeritus Professor at the Open University (UK) with over three decades of experience studying high-performing software development teams to understand what distinguishes them — exposing actionable insights into how they think, communicate, design, and solve problems.',
       photo: 'marian-pic.jpg',
       rotation: '1.5deg'
     },
@@ -28,9 +28,16 @@
       rotation: '-1deg'
     },
     {
+      name: 'Natasha Terry',
+      role: 'Wildlife Artist, Creative Mentor, Writer, and Arts Educator',
+      bio: 'With over 15 years of contemplative practice, she guides people through the creative process in service of personal and collective thriving in harmony with the natural world. She is working to preserve analog and spiritual technologies in art-making through her work at SparrowSongStudio.com.',
+      photo: 'natasha_photo.png',
+      rotation: '-1deg'
+    },
+    {
       name: 'Arty Starr',
       role: 'Artist, Software Engineer, Researcher and Mystic',
-      bio: "2D/3D animator and VFX artist, software engineer with 20+ years of experience, PhD student and author of troubleshooting theory — giving developers words to explain what's happening when software gets out of control. Also trying to be a more integrated human being.",
+      bio: "2D/3D animator and VFX artist, software engineer with 20+ years of experience, PhD student at University of Victoria and originator of troubleshooting theory — giving developers words to explain what's happening when software gets out of control (cognitive debt phenomena). Also trying to be a more integrated human being.",
       photo: 'arty-pic.jpg',
       rotation: '2deg'
     },
@@ -176,7 +183,7 @@
           <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Attendee" class="btn-coral btn-coral-lg">
             Join as Attendee
           </a>
-          <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-solid-purple btn-coral-lg">
+          <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-solid-purple">
             Join as Facilitator
           </a>
         </div>
@@ -221,7 +228,7 @@
     <!-- Schedule -->
     <section class="py-16 px-4 bg-base-100">
       <div class="container mx-auto max-w-4xl">
-        <h2 class="text-5xl font-bold text-center mb-4">Schedule</h2>
+        <h2 class="text-5xl font-bold text-center mb-4">TWC II Schedule</h2>
         <p class="text-center text-lg text-neutral mb-10">May 20th, 2026 · 8:00am – 11:00am Pacific Time</p>
 
         <div class="schedule-table-wrap">
@@ -347,42 +354,6 @@
   .experience-card__icon-wrap--coral  { background: #fff0f0; }
   .experience-card__icon-wrap--purple { background: #f3eeff; }
   .experience-card__icon-wrap--teal   { background: #e6faf8; }
-
-  /* ── Solid purple button ───────────────────────────────── */
-  .btn-solid-purple {
-    display: inline-block;
-    background-color: #533483;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    text-decoration: none;
-  }
-
-  .btn-solid-purple:hover {
-    background-color: #422a6a;
-  }
-
-  /* ── Outline white button ──────────────────────────────── */
-  .btn-outline-white {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .btn-outline-white:hover {
-    background: white;
-    color: #1a1a2e;
-  }
 
   /* ── Video wrapper ─────────────────────────────────────── */
   .video-wrapper {
