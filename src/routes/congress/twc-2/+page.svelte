@@ -37,7 +37,7 @@
     {
       name: 'Arty Starr',
       role: 'Artist, Software Engineer, Researcher and Mystic',
-      bio: "2D/3D animator and VFX artist, software engineer with 20+ years of experience, PhD student at University of Victoria and originator of troubleshooting theory — giving developers words to explain what's happening when software gets out of control (cognitive debt phenomena). Also trying to be a more integrated human being.",
+      bio: "2D/3D animator and VFX artist, software engineer with 20+ years of experience, PhD student at University of Victoria and originator of <em>troubleshooting theory</em> — giving developers words to explain what's happening when software gets out of control (cognitive debt phenomena). Also trying to be a more integrated human being.",
       photo: 'arty-pic.jpg',
       rotation: '2deg'
     },
@@ -68,7 +68,7 @@
   <header class="twc2-hero py-24 px-4">
     <div class="text-center flex flex-col items-center max-w-3xl mx-auto">
       <p class="text-sm font-semibold uppercase tracking-widest text-white/70 mb-3">Virtual Unconference Event by <span class="text-white">Kent Beck</span></p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white whitespace-nowrap">Thinkies World Congress II</h1>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white md:whitespace-nowrap">Thinkies World Congress II</h1>
       <p class="text-2xl font-semibold text-white/90 mb-3">A Creative Gathering for Unsticking Stuck Thinking</p>
       <p class="text-xl text-white/80 mb-4">May 20th, 2026</p>
       <p class="text-lg text-white/80 mb-8">8:00am to 11:00am Pacific Time (5pm – 8pm CET)</p>
@@ -80,7 +80,7 @@
 
     <!-- About Section -->
     <section class="py-16 px-4 bg-base-100">
-      <div class="container mx-auto max-w-4xl text-justified">
+      <div class="container mx-auto max-w-4xl text-justify">
         <p class="text-lg leading-relaxed mb-6">
           Thinkies are <strong>learnable pattern transformations</strong> you can use to shift how you see a situation,
           expand the space of options, and spark new ideas — especially when things feel stuck or prematurely decided.
@@ -217,7 +217,7 @@
               <!-- Bio -->
               <div class="panelist-bio">
                 <p class="panelist-bio__role">{panelist.role}</p>
-                <p class="panelist-bio__text">{panelist.bio}</p>
+                <p class="panelist-bio__text">{@html panelist.bio}</p>
               </div>
             </div>
           {/each}
@@ -327,6 +327,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     border-top: 4px solid transparent;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -467,6 +468,12 @@
     font-size: 1rem;
   }
 
+  @media (max-width: 640px) {
+    .panelist-bio {
+      text-align: center;
+    }
+  }
+
   /* ── Schedule table ────────────────────────────────────── */
   .schedule-table-wrap {
     overflow-x: auto;
@@ -497,6 +504,12 @@
     padding: 0.85rem 1.25rem;
     border-bottom: 1px solid #f0edf8;
     vertical-align: top;
+  }
+
+  @media (max-width: 640px) {
+    .schedule-table__row td {
+      vertical-align: middle;
+    }
   }
 
   .schedule-table__row:last-child td {
