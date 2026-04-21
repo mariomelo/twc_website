@@ -186,7 +186,7 @@
               <p class="pricing-item"><span class="pricing-badge pricing-badge--coral">Early bird</span> <strong>$85 USD</strong> until Apr 28</p>
               <p class="pricing-item pricing-item--muted">Regular price: $185 USD</p>
             </div>
-            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Attendee" class="btn-coral btn-coral-lg pricing-btn">
+            <a href="https://www.eventbrite.com/e/thinkies-world-congress-ii-tickets-1987938370179?aff=oddtdtcreator" class="btn-coral btn-coral-lg pricing-btn">
               Join as Attendee
             </a>
           </div>
@@ -195,7 +195,7 @@
               <p class="pricing-label">Facilitator tickets</p>
               <p class="pricing-item"><strong>$0</strong> with in-kind contribution of helping out</p>
             </div>
-            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-solid-purple pricing-btn">
+            <a href="https://www.eventbrite.com/e/thinkies-world-congress-ii-facilitator-signup-tickets-1987937202687?aff=oddtdtcreator" class="btn-solid-purple pricing-btn">
               Join as Facilitator
             </a>
           </div>
@@ -283,7 +283,7 @@
               <p class="pricing-item pricing-item--light"><span class="pricing-badge pricing-badge--coral">Early bird</span> <strong>$85 USD</strong> until Apr 28</p>
               <p class="pricing-item pricing-item--dim">Regular price: $185 USD</p>
             </div>
-            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Attendee" class="btn-coral btn-coral-lg pricing-btn">
+            <a href="https://www.eventbrite.com/e/thinkies-world-congress-ii-tickets-1987938370179?aff=oddtdtcreator" class="btn-coral btn-coral-lg pricing-btn">
               Join as Attendee
             </a>
           </div>
@@ -292,7 +292,7 @@
               <p class="pricing-label pricing-label--light">Facilitator tickets</p>
               <p class="pricing-item pricing-item--light"><strong>$0</strong> with in-kind contribution of helping out</p>
             </div>
-            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-outline-white btn-coral-lg pricing-btn">
+            <a href="https://www.eventbrite.com/e/thinkies-world-congress-ii-facilitator-signup-tickets-1987937202687?aff=oddtdtcreator" class="btn-outline-white btn-coral-lg pricing-btn">
               Join as Facilitator
             </a>
           </div>
