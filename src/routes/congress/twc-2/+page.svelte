@@ -179,13 +179,26 @@
           Join as an <strong>attendee</strong> or step up as a <strong>Thinkies facilitator</strong> and guide a table discussion.
           Once you have your ticket, we'll send everything you need.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Attendee" class="btn-coral btn-coral-lg">
-            Join as Attendee
-          </a>
-          <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-solid-purple">
-            Join as Facilitator
-          </a>
+        <div class="pricing-grid">
+          <div class="pricing-col">
+            <div class="pricing-block">
+              <p class="pricing-label">Attendee tickets</p>
+              <p class="pricing-item"><span class="pricing-badge pricing-badge--coral">Early bird</span> <strong>$85 USD</strong> until Apr 28</p>
+              <p class="pricing-item pricing-item--muted">Regular price: $185 USD</p>
+            </div>
+            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Attendee" class="btn-coral btn-coral-lg pricing-btn">
+              Join as Attendee
+            </a>
+          </div>
+          <div class="pricing-col">
+            <div class="pricing-block">
+              <p class="pricing-label">Facilitator tickets</p>
+              <p class="pricing-item"><strong>$0</strong> with in-kind contribution of helping out</p>
+            </div>
+            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-solid-purple pricing-btn">
+              Join as Facilitator
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -263,13 +276,26 @@
           <strong class="text-white">Thinkies facilitator</strong> and help guide a table discussion.
           Once you have your ticket, we'll send everything you need to participate in the event.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Attendee" class="btn-coral btn-coral-lg">
-            Join as Attendee
-          </a>
-          <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-outline-white btn-coral-lg">
-            Join as Facilitator
-          </a>
+        <div class="pricing-grid pricing-grid--dark">
+          <div class="pricing-col">
+            <div class="pricing-block">
+              <p class="pricing-label pricing-label--light">Attendee tickets</p>
+              <p class="pricing-item pricing-item--light"><span class="pricing-badge pricing-badge--coral">Early bird</span> <strong>$85 USD</strong> until Apr 28</p>
+              <p class="pricing-item pricing-item--dim">Regular price: $185 USD</p>
+            </div>
+            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Attendee" class="btn-coral btn-coral-lg pricing-btn">
+              Join as Attendee
+            </a>
+          </div>
+          <div class="pricing-col">
+            <div class="pricing-block">
+              <p class="pricing-label pricing-label--light">Facilitator tickets</p>
+              <p class="pricing-item pricing-item--light"><strong>$0</strong> with in-kind contribution of helping out</p>
+            </div>
+            <a href="mailto:hello@thinkies.org?subject=TWC II - Join as Facilitator" class="btn-outline-white btn-coral-lg pricing-btn">
+              Join as Facilitator
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -543,5 +569,93 @@
     font-size: 0.85rem;
     color: #888;
     width: 9rem;
+  }
+
+  /* ── Pricing grid ──────────────────────────────────────── */
+  .pricing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .pricing-block {
+    background: rgba(83, 52, 131, 0.08);
+    border: 1px solid rgba(83, 52, 131, 0.18);
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    flex: 1;
+  }
+
+  .pricing-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #533483;
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-label--light {
+    color: #c4b5fd;
+  }
+
+  .pricing-item {
+    font-size: 0.975rem;
+    color: #1a1a2e;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .pricing-item--muted {
+    font-size: 0.875rem;
+    color: #888;
+  }
+
+  .pricing-item--light {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .pricing-item--dim {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .pricing-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15em 0.5em;
+    border-radius: 999px;
+  }
+
+  .pricing-badge--coral {
+    background: #FD5353;
+    color: white;
+  }
+
+  .pricing-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 220px;
+    max-width: 320px;
+  }
+
+  .pricing-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pricing-grid--dark .pricing-block {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.15);
   }
 </style>
