@@ -6,6 +6,7 @@
   import NoteList from '$lib/components/idea-garden/NoteList.svelte';
   import Tooltip from '$lib/components/idea-garden/Tooltip.svelte';
   import GrowthControl from '$lib/components/idea-garden/GrowthControl.svelte';
+  import Bee from '$lib/components/idea-garden/Bee.svelte';
 
   // ─── Layout constants (SVG user units) ───
   const COL = 92; // width per plant
@@ -133,9 +134,27 @@
         const bx = b.top.x;
         const by = b.top.y - 4;
         const lift = 40 + Math.abs(ax - bx) * 0.18;
-        const cy = Math.max(14, Math.min(ay, by) - lift);
-        // Bee sits on the curve's midpoint (quadratic Bézier at t = ½).
-        return { link: l, d: `M${ax} ${ay} Q ${(ax + bx) / 2} ${cy} ${bx} ${by}`, mx: (ax + bx) / 2, my: (ay + 2 * cy + by) / 4 };
+        const qx = (ax + bx) / 2;
+        const qy = Math.max(14, Math.min(ay, by) - lift);
+        // The bee flies from the plant whose sticky named the other Thinkie
+        // toward the plant it named. Each bee sits a little past halfway, with
+        // some jitter so bees on overlapping flight paths don't stack.
+        const at = (t) => ({
+          x: (1 - t) ** 2 * ax + 2 * (1 - t) * t * qx + t * t * bx,
+          y: (1 - t) ** 2 * ay + 2 * (1 - t) * t * qy + t * t * by
+        });
+        const t = 0.45 + rand(l.note.id) * 0.2;
+        const head = at(t);
+        const dx = 2 * (1 - t) * (qx - ax) + 2 * t * (bx - qx);
+        const dy = 2 * (1 - t) * (qy - ay) + 2 * t * (by - qy);
+        return {
+          link: l,
+          d: `M${ax} ${ay} Q ${qx} ${qy} ${bx} ${by}`,
+          x: head.x,
+          y: head.y,
+          angle: (Math.atan2(dy, dx) * 180) / Math.PI,
+          pollen: [0.035, 0.07, 0.105].map((o) => at(Math.max(0, t - o)))
+        };
       })
   );
 
@@ -216,19 +235,10 @@
       <path d="M0 {GROUND} Q {W / 4} {GROUND - 5} {W / 2} {GROUND} T {W} {GROUND} L {W} {GROUND + 60} L 0 {GROUND + 60} Z" fill="url(#soil)" />
       <rect x="0" y={GROUND} width={W} height="60" fill="url(#grain)" />
 
-      <!-- cross-pollination -->
+      <!-- cross-pollination: flight paths under the plants, bees above them -->
       <g class="pollen">
         {#each pollen as p}
           <path d={p.d} />
-          <g
-            class="bee"
-            role="presentation"
-            onpointerenter={(e) => (tip = { x: e.clientX, y: e.clientY, title: `${p.link.from} → ${p.link.to}`, text: `“${p.link.note.text}”`, meta: 'A sticky that reached for another Thinkie' })}
-            onpointerleave={hide}
-          >
-            <circle cx={p.mx} cy={p.my} r="9" fill="transparent" />
-            <circle cx={p.mx} cy={p.my} r="3.2" />
-          </g>
         {/each}
       </g>
 
@@ -303,13 +313,30 @@
           </g>
         </g>
       {/each}
+
+      <g class="bees">
+        {#each pollen as p, i (p.link.note.id + p.link.to)}
+          <g
+            class="bee"
+            role="presentation"
+            onpointerenter={(e) => (tip = { x: e.clientX, y: e.clientY, title: `${p.link.from} → ${p.link.to}`, text: `“${p.link.note.text}”`, meta: 'A sticky that reached for another Thinkie' })}
+            onpointerleave={hide}
+          >
+            {#each p.pollen as d, j}
+              <circle cx={d.x} cy={d.y} r={1.5 - j * 0.35} class="grain" />
+            {/each}
+            <Bee x={p.x} y={p.y} angle={p.angle} size={1.15} delay={-i * 0.37} />
+            <circle cx={p.x} cy={p.y} r="12" fill="transparent" />
+          </g>
+        {/each}
+      </g>
     </svg>
   </div>
 
   <div class="key">
     <span><svg width="26" height="10" aria-hidden="true"><line x1="2" y1="5" x2="24" y2="5" stroke={EVENT_STEM['twc-1']} stroke-width="3" stroke-linecap="round" /></svg> Growth at TWC 1</span>
     <span><svg width="26" height="10" aria-hidden="true"><line x1="2" y1="5" x2="24" y2="5" stroke={EVENT_STEM['twc-2']} stroke-width="3" stroke-linecap="round" /></svg> Growth at TWC 2</span>
-    <span><svg width="26" height="12" aria-hidden="true"><path d="M2 10 Q 13 -2 24 10" fill="none" stroke="#7b6a9c" stroke-dasharray="3 3" stroke-width="1.4" /><circle cx="13" cy="4" r="2.6" fill="#e2b33c" /></svg> Cross-pollination: a sticky that names another Thinkie</span>
+    <span><svg width="34" height="18" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 16 Q 17 0 32 16" fill="none" stroke="#7b6a9c" stroke-dasharray="2 3" stroke-width="1.1" /><Bee x={18} y={9} angle={0} still /></svg> Cross-pollination: a bee carries a sticky that names another Thinkie</span>
     <span><svg width="26" height="12" aria-hidden="true"><path d="M13 1 C 12 6, 6 8, 4 11 M13 1 C 14 6, 20 8, 22 11" fill="none" stroke="#e9dcc9" stroke-width="1.6" /></svg> Roots: the challenges it was applied to</span>
   </div>
   <p class="hint">Hover a leaf to read it. Click a plant to open it.</p>
@@ -431,10 +458,12 @@
     stroke-dasharray: 2 4;
     opacity: 0.55;
   }
-  .bee circle:last-child {
+  .bee {
+    cursor: help;
+  }
+  .grain {
     fill: #e2b33c;
-    stroke: #fff;
-    stroke-width: 1;
+    opacity: 0.8;
   }
   .plant-label {
     cursor: pointer;

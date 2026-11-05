@@ -74,7 +74,41 @@
         const bend = 0.18 * len * (i % 2 ? 1 : -1);
         const qx = mx - (dy / len) * bend;
         const qy = my + (dx / len) * bend;
-        return { link: l, d: `M${a.cx} ${a.cy} Q ${qx} ${qy} ${b.cx} ${b.cy}`, hx: (a.cx + 2 * qx + b.cx) / 4, hy: (a.cy + 2 * qy + b.cy) / 4 };
+        // A comet travelling from the Thinkie whose sticky named the other one
+        // toward the Thinkie it named. The tail trails back along the curve and
+        // narrows to nothing, so the direction reads without an arrowhead.
+        const at = (t) => ({
+          x: (1 - t) ** 2 * a.cx + 2 * (1 - t) * t * qx + t * t * b.cx,
+          y: (1 - t) ** 2 * a.cy + 2 * (1 - t) * t * qy + t * t * b.cy
+        });
+        const tHead = 0.56 + rand(l.note.id) * 0.14;
+        const span = Math.min(0.4, 90 / len); // roughly 90 units of tail
+        const N = 14;
+        const spine = Array.from({ length: N + 1 }, (_, k) => at(Math.max(0, tHead - (span * k) / N)));
+        const ribbon = (maxW) => {
+          const left = [];
+          const right = [];
+          spine.forEach((p, k) => {
+            const q = spine[Math.min(N, k + 1)];
+            const r = spine[Math.max(0, k - 1)];
+            const tx = r.x - q.x;
+            const ty = r.y - q.y;
+            const tl = Math.hypot(tx, ty) || 1;
+            const w = maxW * Math.pow(1 - k / N, 1.3);
+            left.push(`${(p.x - (ty / tl) * w).toFixed(1)} ${(p.y + (tx / tl) * w).toFixed(1)}`);
+            right.push(`${(p.x + (ty / tl) * w).toFixed(1)} ${(p.y - (tx / tl) * w).toFixed(1)}`);
+          });
+          return `M${left.join(' L')} L${right.reverse().join(' L')} Z`;
+        };
+        return {
+          link: l,
+          id: `comet-${i}`,
+          d: `M${a.cx} ${a.cy} Q ${qx} ${qy} ${b.cx} ${b.cy}`,
+          head: spine[0],
+          end: spine[N],
+          halo: ribbon(5.5),
+          core: ribbon(2.2)
+        };
       })
   );
 
@@ -160,14 +194,6 @@
         <g class="bridges">
           {#each bridges as b}
             <path d={b.d} />
-            <g
-              role="presentation"
-              onpointerenter={(e) => (tip = { x: e.clientX, y: e.clientY, title: `${b.link.from} → ${b.link.to}`, text: `“${b.link.note.text}”`, meta: 'A sticky that reached for another Thinkie' })}
-              onpointerleave={leave}
-            >
-              <circle cx={b.hx} cy={b.hy} r="10" fill="transparent" />
-              <circle cx={b.hx} cy={b.hy} r="2.4" class="bridge-node" />
-            </g>
           {/each}
         </g>
 
@@ -188,6 +214,30 @@
             </g>
           </g>
         {/each}
+
+        <g class="comets">
+          {#each bridges as b, i (b.id)}
+            <defs>
+              <linearGradient id={b.id} gradientUnits="userSpaceOnUse" x1={b.head.x} y1={b.head.y} x2={b.end.x} y2={b.end.y}>
+                <stop offset="0" stop-color="#fff4cf" stop-opacity="0.95" />
+                <stop offset="0.35" stop-color="#e2b33c" stop-opacity="0.6" />
+                <stop offset="1" stop-color="#e2b33c" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <g
+              class="comet"
+              role="presentation"
+              onpointerenter={(e) => (tip = { x: e.clientX, y: e.clientY, title: `${b.link.from} → ${b.link.to}`, text: `“${b.link.note.text}”`, meta: 'A sticky that reached for another Thinkie' })}
+              onpointerleave={leave}
+            >
+              <path d={b.halo} fill="url(#{b.id})" opacity="0.35" />
+              <path d={b.core} fill="url(#{b.id})" />
+              <circle cx={b.head.x} cy={b.head.y} r="7" class="coma" style="animation-delay: {-i * 0.6}s" />
+              <circle cx={b.head.x} cy={b.head.y} r="2.6" fill="#fffaf0" />
+              <circle cx={b.head.x} cy={b.head.y} r="14" fill="transparent" />
+            </g>
+          {/each}
+        </g>
       </svg>
     </div>
 
@@ -205,8 +255,8 @@
       <p>
         <strong>How to read a constellation.</strong> The centre is the Thinkie. Each dotted orbit is one session
         (inner = earliest). Questions sit top-right, reframes top-left, concerns bottom-left and actions bottom-right —
-        the same corners they pull toward in the <a href="{base}/idea-garden/field/">Cynefin field</a>. Gold bridges are
-        stickies that name another Thinkie. Hover a star to read it; click a name to open it.
+        the same corners they pull toward in the <a href="{base}/idea-garden/field/">Cynefin field</a>. Comets fly from a
+        Thinkie toward another one whenever a sticky names it. Hover a star to read it; click a name to open it.
       </p>
     </div>
   </div>
@@ -329,12 +379,31 @@
   .bridges path {
     fill: none;
     stroke: #e2b33c;
-    stroke-width: 1;
-    stroke-dasharray: 2 5;
-    opacity: 0.55;
+    stroke-width: 0.8;
+    stroke-dasharray: 1 6;
+    opacity: 0.35;
   }
-  .bridge-node {
-    fill: #e2b33c;
+  .comet {
+    cursor: help;
+  }
+  .coma {
+    fill: #f6d77a;
+    opacity: 0.28;
+    animation: twinkle 3.2s ease-in-out infinite;
+  }
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.18;
+    }
+    50% {
+      opacity: 0.42;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .coma {
+      animation: none;
+    }
   }
   .slot {
     transition: opacity 0.3s;
