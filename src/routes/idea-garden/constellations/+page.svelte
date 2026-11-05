@@ -178,8 +178,7 @@
     </div>
 
     <div class="sky" onpointerleave={leave} role="region" aria-label="Constellation map">
-      <svg viewBox="0 0 {W} {H}" role="img" aria-labelledby="sky-title">
-        <title id="sky-title">Fourteen Thinkies drawn as constellations; each session adds an orbit.</title>
+      <svg viewBox="0 0 {W} {H}" role="group" aria-label="Fourteen Thinkies drawn as constellations; each session adds an orbit.">
         <defs>
           <radialGradient id="nebula" cx="0.45" cy="0.5" r="0.7">
             <stop offset="0" stop-color="#2a2150" />
@@ -379,9 +378,10 @@
   .bridges path {
     fill: none;
     stroke: #e2b33c;
-    stroke-width: 0.8;
-    stroke-dasharray: 1 6;
-    opacity: 0.35;
+    stroke-width: 1.3;
+    stroke-dasharray: 0.1 6;
+    stroke-linecap: round;
+    opacity: 0.7;
   }
   .comet {
     cursor: help;

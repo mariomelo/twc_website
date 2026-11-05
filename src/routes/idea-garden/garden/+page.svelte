@@ -218,8 +218,7 @@
   </div>
 
   <div class="stage" role="region" aria-label="The Thinkie garden" onpointerleave={hide}>
-    <svg viewBox="0 0 {W} {H}" class="garden" role="img" aria-labelledby="garden-title">
-      <title id="garden-title">Fourteen Thinkies drawn as plants; stem length is the number of stickies they produced.</title>
+    <svg viewBox="0 0 {W} {H}" class="garden" role="group" aria-label="Fourteen Thinkies drawn as plants; stem length is the number of stickies they produced.">
       <defs>
         <linearGradient id="soil" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0" stop-color="#8a6a4f" />

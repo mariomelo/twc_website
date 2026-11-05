@@ -172,8 +172,7 @@
 
   <div class="layout">
     <div class="map" role="region" aria-label="Cynefin map" onpointerleave={leave}>
-      <svg viewBox="0 0 {W} {H}" role="img" aria-labelledby="field-title">
-        <title id="field-title">Challenges placed on a Cynefin map by the mix of stickies they received.</title>
+      <svg viewBox="0 0 {W} {H}" role="group" aria-label="Challenges placed on a Cynefin map by the mix of stickies they received.">
         <defs>
           <radialGradient id="conf" cx="0.5" cy="0.5" r="0.5">
             <stop offset="0" stop-color="#ffffff" />
