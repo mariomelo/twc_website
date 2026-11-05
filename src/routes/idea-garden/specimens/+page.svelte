@@ -63,7 +63,7 @@
         <button type="button" aria-pressed={sortBy === k} onclick={() => (sortBy = k)}>{s.label}</button>
       {/each}
     </div>
-    <KindLegend bind:active {counts} />
+    <KindLegend bind:active {counts} metaphors={{ concern: 'root' }} />
   </div>
 
   <ol class="plates" onpointerleave={leave}>
@@ -109,7 +109,7 @@
             <dt>Composition</dt>
             <dd>
               {#each KIND_ORDER as k}
-                <span class="comp" style="--k: {KINDS[k].color}">{KINDS[k].metaphors} {pct(open, k)}%</span>
+                <span class="comp" style="--k: {KINDS[k].color}">{k === 'concern' ? 'roots' : KINDS[k].metaphors} {pct(open, k)}%</span>
               {/each}
             </dd>
           </div>

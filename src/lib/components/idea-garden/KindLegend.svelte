@@ -6,7 +6,9 @@
   import { KINDS, KIND_ORDER } from '$lib/data/idea-garden.js';
   import KindMark from './KindMark.svelte';
 
-  let { counts = null, active = $bindable(null), dark = false, showMetaphor = true } = $props();
+  // `metaphors` lets a view rename a kind's metaphor when it draws it differently
+  // (e.g. the specimens draw concerns as roots, not thorns).
+  let { counts = null, active = $bindable(null), dark = false, showMetaphor = true, metaphors = {} } = $props();
 
   function toggle(k) {
     if (!active) return;
@@ -31,14 +33,14 @@
         >
           <svg width="18" height="18" viewBox="-9 -9 18 18" aria-hidden="true"><KindMark kind={k} size={14} /></svg>
           <span class="ig-legend-label">{info.plural}</span>
-          {#if showMetaphor}<span class="ig-legend-meta">{info.metaphor}</span>{/if}
+          {#if showMetaphor}<span class="ig-legend-meta">{metaphors[k] ?? info.metaphor}</span>{/if}
           {#if counts}<span class="ig-legend-count">{counts[k]}</span>{/if}
         </button>
       {:else}
         <span class="ig-legend-item is-static">
           <svg width="18" height="18" viewBox="-9 -9 18 18" aria-hidden="true"><KindMark kind={k} size={14} /></svg>
           <span class="ig-legend-label">{info.plural}</span>
-          {#if showMetaphor}<span class="ig-legend-meta">{info.metaphor}</span>{/if}
+          {#if showMetaphor}<span class="ig-legend-meta">{metaphors[k] ?? info.metaphor}</span>{/if}
           {#if counts}<span class="ig-legend-count">{counts[k]}</span>{/if}
         </span>
       {/if}
