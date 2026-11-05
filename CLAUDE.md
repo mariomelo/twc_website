@@ -16,11 +16,17 @@ only durable, non-obvious facts that save re-discovery.
   (single source of truth for the event). When a workshop passes, move `nextEvent`
   into the front of `pastEvents` — the two objects share a shape so it's a
   copy-paste — then fill `nextEvent` with the new one.
+- `/idea-garden/` (branch `idea-garden`, exploratory) draws the TWC boards from
+  `static/conferences/twc-{1,2}/data.json`, imported directly by
+  `src/lib/data/idea-garden.js` (hence `server.fs.allow: ['static']` in
+  `vite.config.js`). That module also holds the hand classification of every
+  sticky (one letter per sticky, length-checked at load) and the problem titles.
 
 ## ⚠️ DaisyUI global class-name collisions (learned the hard way)
 
 DaisyUI 5 ships **unscoped global component classes** with very generic names:
-`.steps`, `.step`, `.label`, `.card`, `.badge`, `.value`, `.menu`, `.tab`, etc.
+`.steps`, `.step`, `.label`, `.card`, `.badge`, `.value`, `.menu`, `.tab`, `.hero`,
+`.list`, `.stack`, etc. (Tailwind utilities like `.static` collide too.)
 
 If a Svelte component uses one of these as a **custom class**, DaisyUI's global rule
 still matches it. Svelte's scoped rule (`.foo.svelte-hash …`) only overrides the
