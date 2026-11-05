@@ -35,7 +35,7 @@
           .map((p) => ({ id: p.slug, label: String(p.number), title: p.title, counts: p.counts, cynefin: p.cynefin, notes: p.notes, sub: p.thinkies.join(', '), scenario: p.scenario }))
       : garden.thinkies
           .filter((t) => eventFilter === 'all' || t.sessions.some((s) => s.event === eventFilter))
-          .map((t) => ({ id: t.slug, label: t.name.split(/[ /]/)[0].slice(0, 4), title: t.name, counts: t.counts, cynefin: t.cynefin, notes: t.sessions.flatMap((s) => s.notes), sub: `${t.sessions.length} sessions`, scenario: null }))
+          .map((t) => ({ id: t.slug, label: t.name, title: t.name, counts: t.counts, cynefin: t.cynefin, notes: t.sessions.flatMap((s) => s.notes), sub: `${t.sessions.length} sessions`, scenario: null }))
   );
 
   // The mix of a Thinkie board is lopsided (an all-action board is barely right
@@ -75,7 +75,7 @@
           let dx = b.x - a.x;
           let dy = b.y - a.y;
           let d = Math.hypot(dx, dy);
-          const min = a.r + b.r + 9; // room for the number label
+          const min = a.r + b.r + (mode === 'thinkies' ? 30 : 9); // room for the label
           if (d < min) {
             if (d < 0.01) {
               dx = Math.cos(i + j);
@@ -237,9 +237,18 @@
                   <path d={petal(p.x, p.y, CORNER[k], 3 + (p.r - 3) * Math.sqrt(share(p.it, k)))} fill={KINDS[k].color} stroke="#fff" stroke-width="1" />
                 {/if}
               {/each}
-              <text x={p.x} y={p.y + p.r + 10} class="num">{p.it.label}</text>
             </g>
           </g>
+        {/each}
+
+        <!-- labels last, so no glyph ever sits on top of a name -->
+        {#each placed as p (p.it.id)}
+          <text
+            x={p.x}
+            y={p.y + p.r + 10}
+            class="num"
+            class:dim={(selected && selected !== p.it.id) || (hovered && hovered !== p.it.id && selected !== p.it.id)}
+          >{p.it.label}</text>
         {/each}
       </svg>
     </div>
@@ -432,7 +441,8 @@ y = (questions + reframes − actions − concerns) / n</pre>
   .item {
     transition: opacity 0.2s;
   }
-  .item.dim {
+  .item.dim,
+  .num.dim {
     opacity: 0.25;
   }
   .glyph {
@@ -457,6 +467,12 @@ y = (questions + reframes − actions − concerns) / n</pre>
     fill: #a79fc2;
   }
   .num {
+    pointer-events: none;
+    paint-order: stroke;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    transition: opacity 0.2s;
     font-size: 10px;
     font-weight: 700;
     text-anchor: middle;
